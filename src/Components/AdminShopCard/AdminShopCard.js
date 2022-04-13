@@ -1,8 +1,10 @@
 import React from 'react'
 import './AdminShopCard.css'
 import pepsiimg from '../../Utils/Images/img-pepsi.png'
+import Modal from '../Modal/Modal'
 
 const AdminShopCard = () => {
+    
   return (
          <div className="container3">
         <div className="card3">

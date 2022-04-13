@@ -16,11 +16,9 @@ import AdminShopCard from './Components/AdminShopCard/AdminShopCard';
 import { Admin } from './Components/Admin/Admin';
 import UserState from './Context/Users/userState';
 import ShopState from './Context/Shop/shopState'
+import Modal from './Components/Modal/Modal';
 
 function App() {
-  // const ary=[
-  //   1,2,3,4,5,6,7,8,9
-  // ]
   const [ary, setary]= useState([]);
   const [Data, setData] = useState([]);
   console.log(Data);
