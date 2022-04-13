@@ -1,11 +1,57 @@
 import React from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
-const Login = () => {
+const Login = (props) => {
+  const fertdata = [
+    {
+      "title" : "Washerman",
+      "Description" : "urea/amonia",
+      "Quantity" : "2",
+      "Unit" : "MT",
+      "items" : [1,2,3,4,5,6],
+      "loginID" : "aman1"
+    },
+
+    {
+      "title" : "fertilizer",
+      "Description" : "urea/amonia",
+      
+      "items" : [1,2,3,4,5],
+      "Quantity" : "2",
+      "Unit" : "MT",
+      "loginID" : "aman1"
+    },
+      {
+      "title" : "fertilizer",
+      "Description" : "urea/amonia",
+      "items" : [1,2,3,4],
+      "Quantity" : "2",
+      "Unit" : "MT",
+      "loginID" : "aman1"
+    },
+    {
+      "title" : "fertilizer",
+      "Description" : "urea/amonia",
+      "items" : [1,2],
+      "Quantity" : "2",
+      "Unit" : "MT",
+      "loginID" : "aman1"
+    },
+    {
+      "title" : "fertilizer",
+      "Description" : "urea/amonia",
+      "items" : [1,2,3],
+      "Quantity" : "2",
+      "Unit" : "MT",
+      "loginID" : "aman1"
+    }
+  ]
+  const handleClick2 = ()=>{
+     props.setData(fertdata);
+  }
   return (
-    <>
-    <div style={{overflow : "hidden", maxHeight : "100vh"}}>
-    <section >
+    <div class="c1">
+    <section>
         <div className="color"></div>
         <div className="color"></div>
         <div className="color"></div>
@@ -27,7 +73,7 @@ const Login = () => {
                         </div>
                         <div className="inputBox">
                           <Link to="/student">
-                            <input type="submit" value = "login"/>
+                            <input type="submit" value = "login" onClick={handleClick2}/>
                             </Link>
                         </div>
                         
@@ -39,7 +85,6 @@ const Login = () => {
         
     </section>
     </div>
-    </>
   )
 }
 
