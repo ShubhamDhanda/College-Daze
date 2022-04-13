@@ -14,6 +14,8 @@ import PendingOrders from './Components/pendingOrders/PendingOrders';
 import PendingOrdersCaller from './Components/PendingOrdersCaller/PendingOrdersCaller';
 import AdminShopCard from './Components/AdminShopCard/AdminShopCard';
 import { Admin } from './Components/Admin/Admin';
+import UserState from './Context/Users/userState';
+import ShopState from './Context/Shop/shopState'
 
 function App() {
   // const ary=[
@@ -24,6 +26,8 @@ function App() {
   console.log(Data);
   return (
     <>
+    <ShopState>
+    <UserState>
     <Router>
     <Navbar />
       <Routes>
@@ -35,6 +39,8 @@ function App() {
         <Route path="itemcaller" element={<ItemCaller ary={ary}/>} />
       </Routes>
     </Router>
+    </UserState>
+    </ShopState>
     </>
   );
 }

@@ -120,9 +120,9 @@ const loginUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-	const userId = req.params.id;
-
+	
 	try {
+		const userId = req.body.id;
 		let success = false;
 		const user = await User.find(userId);
 		
