@@ -6,6 +6,7 @@ import Home from './Components/Home/Home'
 import Navbar from './Components/Navbar/Navbar'
 import Login from './Components/Login/Login'
 import Signup from './Components/Signup/Signup'
+import Shopkeeper from './Components/Shopkeeper/Shopkeeper'
 import { Student } from './Components/Student/Student';
 import { ItemCaller } from './Components/itemsCaller/ItemCaller';
 
@@ -18,10 +19,11 @@ function App() {
     {/* <Navbar /> */}
     <Router>
       <Routes>
-        <Route path="/" element={<Student/>} />
-        {/* <Route path="/home" element={<Home/>} />
+        <Route path="/student" element={<Student/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} /> */}
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/shopkeeper" element={<Shopkeeper />} />
         <Route path="itemcaller" element={<ItemCaller ary={ary}/>} />
       </Routes>
     </Router>

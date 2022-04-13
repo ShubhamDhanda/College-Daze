@@ -1,9 +1,11 @@
 import React from 'react'
 import './Shopkeeper.css'
 
-export const Shopkeeper = () => {
+const Shopkeeper = () => {
   return (
     <>
     </>
   )
 }
+
+export default Shopkeeper
