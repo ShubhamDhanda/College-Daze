@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <>
-    <section>
+    <div style={{overflow : "hidden", maxHeight : "100vh"}}>
+    <section >
         <div className="color"></div>
         <div className="color"></div>
         <div className="color"></div>
@@ -37,6 +38,7 @@ const Login = () => {
         </div>
         
     </section>
+    </div>
     </>
   )
 }

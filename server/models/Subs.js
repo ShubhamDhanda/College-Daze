@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const orderSchema = new Schema({
+const subsSchema = new Schema({
     user_id : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
@@ -17,14 +17,14 @@ const orderSchema = new Schema({
         ref : "Item",
         required : true
     },
-    quantity : {
+    time_limit : {
         type : Number,
-        required: true
+        required : true
     }
 },
 {
     timestamps : true
 })
 
-const Order = mongoose.model('order', orderSchema);
-module.exports = Order;
+const Subs = mongoose.model('subs', subsSchema);
+module.exports = Subs;

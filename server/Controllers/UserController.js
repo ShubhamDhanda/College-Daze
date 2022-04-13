@@ -64,8 +64,6 @@ const signupUser = async (req, res) => {
 	}
 }
 
-
-
 const loginUser = async (req, res) => {
 
 	const { loginID, password, type } = req.body;
@@ -121,4 +119,34 @@ const loginUser = async (req, res) => {
 	}
 };
 
-module.exports = { loginUser, signupUser }
+const deleteUser = async (req, res) => {
+	const userId = req.params.id;
+
+	try {
+		let success = false;
+		const user = await User.find(userId);
+		
+		if (!user)
+			return res.status(404).json({success,
+				 message: "User not found" });
+
+		if(user.type!=="shopkeeper"){
+			return res.status(401).json({
+				success,
+				error : "User is not a shopkeeper"
+			})
+		}
+
+		await User.deleteOne({ _id: userId });
+		await Shop.deleteOne({ owner_id : userId});
+		
+		success = true;
+		return res.status(200).json({ 
+			success,
+			message: "User deleted successfully" });
+	} catch (err) {
+		return res.status(500).json({ message: "Something went wrong" ,error:err});
+	}
+}
+
+module.exports = { loginUser, signupUser, deleteUser }
