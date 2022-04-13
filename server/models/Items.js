@@ -9,17 +9,18 @@ const itemSchema = new Schema({
     },
     item_name: {
         type: String,
-        required: true
+        required: true,
+        unique : true
     },
-    item_quantity: {
+    quantity: {
         type: Number,
         required: true
     },
-    item_price: {
+    price: {
         type: Number,
         required : true
     },
-    item_desc: {
+    desc: {
         type: String
     }
 },

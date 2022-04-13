@@ -149,4 +149,51 @@ const deleteUser = async (req, res) => {
 	}
 }
 
-module.exports = { loginUser, signupUser, deleteUser }
+const getUserDetails = async (req, res) => {
+	const id = req.params.id;
+
+	try{
+		let success = false
+		let user = await User.findById(id).select('-password');
+		if(!user){
+			return res.status(400).json({
+				success,
+				error : "User Doesnt Exist"
+			})
+		}
+		success = true;
+		return res.status(200).json({
+			success,
+			user
+		})
+	} catch (error) {
+		console.log(error.message),
+        res.status(500).send("Internal Server Error");
+	}
+}
+
+const getDetails = async (req, res) => {
+	
+	try{
+		const id = req.body.id;
+		let success = false;
+		let user = await User.findById(id).select('-password');
+		if(!user){
+			return res.status(400).json({
+				success,
+				error : "User Doesnt Exist"
+			})
+		}
+		
+		success = true;
+		return res.status(200).json({
+			success,
+			user
+		})
+	} catch (error) {
+		console.log(error.message),
+        res.status(500).send("Internal Server Error");
+	}
+}
+
+module.exports = { loginUser, signupUser, deleteUser, getUserDetails, getDetails }
