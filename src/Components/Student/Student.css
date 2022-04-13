@@ -1,0 +1,22 @@
+.h5, h5 {
+    font-size: 1.5rem;
+}
+.card-title {
+    margin-bottom: 0.75rem;
+    margin-left: 3rem;
+    font-weight: bold;
+}
+.row{
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 3px;
+}
+.card{
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card:hover{
+    box-shadow: 2px 2px grey;
+}
