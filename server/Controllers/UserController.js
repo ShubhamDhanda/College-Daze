@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 const User = require("../models/User");
+const Shop = require("../models/Shops.js")
 
 const signupUser = async (req, res) => {
 	let success = false;
@@ -28,18 +29,38 @@ const signupUser = async (req, res) => {
 			password: secPass,
 			type: req.body.type
 		});
+
 		
 		const authToken = generateToken(user._id);
-          
+
+		if (req.body.type === "shopkeeper") {
+			let shop = await Shop.create({
+				owner_id: user._id,
+				shop_name: req.body.shopName,
+				shop_type: req.body.shopType,
+				items: [],
+				orders: []
+			})
+
+			success = true;
+			res.status(200).json({
+				success,
+				user,
+				shop,
+				authToken
+			})
+
+		}
+
 		success = true;
-		res.status(200).json({ 
+		res.status(200).json({
 			success,
 			user,
 			authToken
 		})
 	} catch (error) {
 		console.log(error.message),
-		res.status(500).send("Internal Server Error");
+			res.status(500).send("Internal Server Error");
 	}
 }
 
@@ -75,18 +96,19 @@ const loginUser = async (req, res) => {
 			existingUser.password
 		);
 		if (!isPasswordValid)
-			return res.status(401).json({       
-                success, 
-                error: "Invalid password" });
+			return res.status(401).json({
+				success,
+				error: "Invalid password"
+			});
 
 		//Compare Types
-		const isSameType = (existingUser.type===type?true:false);
-		if(!isSameType)
-				return res.status(401).json({
-					success,
-					error : "Wrong type of User"
-				})
-				
+		const isSameType = (existingUser.type === type ? true : false);
+		if (!isSameType)
+			return res.status(401).json({
+				success,
+				error: "Wrong type of User"
+			})
+
 		//Login User
 		success = true;
 		res.status(200).json({
@@ -95,7 +117,7 @@ const loginUser = async (req, res) => {
 			token: generateToken(existingUser._id),
 		});
 	} catch (err) {
-		res.status(500).json({ message: "Something went wrong" ,err});
+		res.status(500).json({ message: "Something went wrong", err });
 	}
 };
 
