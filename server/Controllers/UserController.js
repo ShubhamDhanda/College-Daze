@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 const User = require("../models/User");
-const Shop = require("../models/Shops.js")
+const Shop = require("../models/Shops.js");
 
 const signupUser = async (req, res) => {
 	let success = false;

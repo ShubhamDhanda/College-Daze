@@ -21,9 +21,10 @@ dotenv.config();
 
 //routes
 const userRouter = require('./Routes/userRoutes.js');
+const shopRouter = require('./Routes/shopRoutes.js');
 
 app.use("/auth", userRouter);
-
+app.use("/shops", shopRouter);
 
 app.listen(port, () => {
 	console.log(`College Daze backend is running at http://localhost:${port}`);
