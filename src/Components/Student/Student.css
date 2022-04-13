@@ -1,5 +1,6 @@
 .h5, h5 {
     font-size: 1.5rem;
+    text-decoration: none;
 }
 .card-title {
     margin-bottom: 0.75rem;
@@ -12,11 +13,17 @@
     margin-bottom: 3px;
 }
 .card{
+    min-width: 350px;
     cursor: pointer;
     transition: 0.5s;
     border-radius: 20px;
     overflow: hidden;
+    margin-bottom:30px ;
 }
 .card:hover{
     box-shadow: 2px 2px grey;
+}
+.card-title{
+    text-decoration: none;
+    color: black;
 }
