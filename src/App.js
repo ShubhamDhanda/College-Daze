@@ -12,6 +12,8 @@ import { Student } from './Components/Student/Student';
 import { ItemCaller } from './Components/itemsCaller/ItemCaller';
 import PendingOrders from './Components/pendingOrders/PendingOrders';
 import PendingOrdersCaller from './Components/PendingOrdersCaller/PendingOrdersCaller';
+import AdminShopCard from './Components/AdminShopCard/AdminShopCard';
+import { Admin } from './Components/Admin/Admin';
 
 function App() {
   // const ary=[
@@ -32,8 +34,6 @@ function App() {
         <Route path="/shopkeeper" element={<Shopkeeper />} />
         <Route path="itemcaller" element={<ItemCaller ary={ary}/>} />
       </Routes>
-      {/* <PendingOrders /> */}
-      {/* <PendingOrdersCaller /> */}
     </Router>
     </>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import './item.css'
-import pepsi from '../../utils/Images/img-pepsi.png'
+import pepsi from '../../Utils/Images/img-pepsi.png'
 
 export const Item = () => {
   return (
