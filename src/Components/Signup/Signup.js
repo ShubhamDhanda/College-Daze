@@ -1,9 +1,11 @@
 import React from 'react'
 import './Signup.css'
 
-export const Signup = () => {
+const Signup = () => {
   return (
     <>
     </>
   )
 }
+
+export default Signup
